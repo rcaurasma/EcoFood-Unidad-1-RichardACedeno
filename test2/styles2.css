@@ -1,0 +1,482 @@
+/* Reset y base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Segoe UI', Arial, sans-serif; 
+    background: #f7f9f5; 
+    color: #2d3a2e; 
+}
+
+/* Variables comunes */
+:root {
+    --bg-primary: #d6e7b2;
+    --bg-secondary: #fee1a6;
+    --bg-highlight: #fff6d6;
+    --bg-green: #8fcfa9;
+    --text-dark: #2d3a2e;
+    --text-light: #fff;
+    --btn-bg: #4d4d3e;
+    --btn-hover: #2d2d1e;
+}
+
+/* Clases utilitarias */
+.bg-pattern { background: var(--bg-primary) url(../assets/FondoVerde.png) repeat; }
+.text-shadow { text-shadow: 1px 1px 8px rgba(0,0,0,0.3); }
+.card-shadow { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+/* Header */
+header, .header-bg { 
+    background: #d6e7b2; 
+    border-bottom: 2px solid #b6c98e; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.header-bg::before { 
+    content: ""; 
+    position: absolute; 
+    inset: 0; 
+    background: url('../assets/FondoVerde.png') center/cover no-repeat; 
+    opacity: 0.75; 
+    z-index: 0; 
+}
+
+.header-bg > * { position: relative; z-index: 1; }
+
+.header-bg, .header-bg a, .header-bg .navbar-brand, .header-bg .nav-link {
+    color: #222 !important;
+    font-weight: bold !important;
+}
+
+/* Si usas Bootstrap, fuerza el color blanco en los enlaces activos y hover */
+.header-bg .nav-link.active, .header-bg .nav-link:hover { color: #fff !important; font-weight: bold !important; }
+
+.header-bg .navbar-nav.ms-auto .nav-link {
+    background: #e6eec7;
+    border-radius: 8px;
+    margin-left: 8px;
+    padding: 6px 18px;
+    border: 2px solid #b6c98e;
+    transition: all 0.2s;
+}
+
+.header-bg .navbar-nav.ms-auto .nav-link:hover {
+    background: #b6c98e;
+}
+
+/* Logo */
+.ecofood-logo {
+    font-family: 'Luckiest Guy', cursive !important;
+    letter-spacing: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: var(--bg-secondary);
+    padding: 20px;
+}
+
+.hero {
+    position: relative;
+    min-height: 340px;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #FEE1A6;
+    border-radius: 12px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover; /* Cambiado de 'contain' a 'cover' */
+    object-position: center; 
+    display: block;
+    border-radius: 4px;
+    filter: brightness(0.85);
+}
+
+/* Remover o reducir significativamente el overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(254,225,166,0.1); /* Reducir opacidad de 0.7 a 0.1 */
+    z-index: 2;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 900px;
+    color: var(--text-light);
+    z-index: 3;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: #f7f6e7;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #f7f6e7;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+}
+
+/* Botones */
+.btn-hero, .btn-cta {
+    background: var(--btn-bg);
+    color: var(--text-light);
+    padding: 14px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.btn-hero:hover, .btn-cta:hover {
+    background: var(--btn-hover);
+    color: var(--text-light);
+}
+
+.btn-cta {
+    font-size: 1.1rem;
+    padding: 12px 32px;
+    margin-left: 0;     /* Asegura que el botón esté alineado a la izquierda */
+    margin-top: 22px;   /* Agrega espacio arriba del botón */
+}
+
+/* Secciones con patrón */
+.why, .guia, footer {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.why {
+    background: var(--bg-primary) url(../assets/FondoVerde.png) repeat;
+    padding-bottom: 20px;
+}
+
+.why h2 {
+    font-size: 2.2rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.2);
+}
+
+/* Listas de contenido */
+.content-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.content-item {
+    background: var(--bg-secondary);
+    color: var(--text-dark);
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.content-item.highlight {
+    background: var(--bg-highlight);
+}
+
+/* Testimonios y Beneficios */
+.testi-benefits {
+    display: flex;
+    min-height: 400px;
+    align-items: flex-start;
+    background: var(--bg-primary) url(../assets/FondoVerde.png) repeat;
+}
+
+.testimonios, .beneficios {
+    flex: 1;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido arriba */
+}
+
+.testimonios h3, .beneficios h3 {
+    color: var(--text-light);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.2);
+    margin-top: 0; /* Elimina margen superior */
+    min-height: 48px; /* Asegura altura uniforme */
+    display: flex;
+    align-items: center;
+}
+
+/* Igualar tamaño de los cuadros */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+.card, .benefit-card {
+    background: var(--text-light);
+    border-radius: 12px;
+    padding: 18px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: left;
+    width: 100%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    /* Para que los cuadros de beneficios y testimonios sean iguales */
+}
+
+.benefit-card {
+    gap: 18px;
+    flex-direction: row;
+}
+
+.benefit-card img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.benefit-card > div {
+    flex: 1;
+}
+
+/* Guía */
+.guia {
+    background: var(--bg-primary) url(../assets/FondoVerde.png) repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 300px;
+    text-align: left;
+}
+
+.guia-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea todo a la izquierda */
+}
+
+.guia-content h3 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 18px;
+}
+
+.guia-content .content-list {
+    margin-bottom: 18px;
+    align-items: flex-start;
+    max-width: none;    /* Quita el límite de ancho */
+    margin: 0;          /* Quita el centrado automático */
+    padding: 0;         /* Quita cualquier padding extra */
+}
+
+.btn-cta {
+    margin-left: 0;     /* Asegura que el botón esté alineado a la izquierda */
+    margin-top: 22px;   /* Agrega espacio arriba del botón */
+}
+
+.guia-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guia-image img {
+    width: 440px;       /* Más grande */
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-left: 0;     /* Centrado respecto a su contenedor */
+}
+
+/* Footer */
+footer {
+    background: var(--bg-primary) url(../assets/FondoVerde.png) repeat;
+    color: var(--text-dark);
+    padding: 30px 20px 10px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+}
+
+.footer-cards {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-card {
+    background: var(--text-light);
+    border-radius: 14px;
+    padding: 18px 24px;
+    min-width: 180px;
+    max-width: 240px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.footer-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.footer-card a {
+    color: var(--text-dark);
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.footer-card a:hover {
+    text-decoration: underline;
+}
+
+/* Bootstrap Hero Override */
+.hero-bootstrap {
+    min-height: 340px;
+    border: 8px solid #FEE1A6;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    position: relative;
+    padding: 0 !important;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(254,225,166,0.1);
+    z-index: 2;
+}
+
+.hero-content-bootstrap {
+    z-index: 3;
+    color: #f7f6e7;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+    padding: 0 10px;
+}
+
+.hero-content-bootstrap h1 {
+    font-size: 2.5rem;
+    color: #f7f6e7;
+    margin-bottom: 20px;
+}
+
+.hero-content-bootstrap p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #f7f6e7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .testi-benefits, .guia, .footer-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .hero-section {
+        padding: 10px;
+    }
+    .hero {
+        flex-direction: column;
+        min-height: unset;
+        height: auto;
+        border-width: 4px;
+        padding: 0;
+        position: relative;
+    }
+    .hero-img {
+        height: 180px;
+        min-height: 120px;
+        max-height: 220px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+    .hero-content {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        background: rgba(255,255,255,0.85);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 18px 10px 24px 10px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: none;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 18px;
+    }
+    .btn-hero {
+        font-size: 1rem;
+        padding: 10px 24px;
+        margin-top: 10px;
+    }
+    .hero-content-bootstrap {
+        position: static !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 100%;
+        background: rgba(255,255,255,0.85);
+        color: var(--text-dark);
+        margin: 0;
+        padding: 18px 10px 24px 10px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: none;
+        text-align: center;
+    }
+    .hero-content-bootstrap h1 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        color: var(--text-dark);
+        text-shadow: none;
+    }
+    .hero-content-bootstrap p {
+        font-size: 1rem;
+        margin-bottom: 18px;
+        color: var(--text-dark);
+        text-shadow: none;
+    }
+}
